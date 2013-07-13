@@ -1,5 +1,10 @@
 class LinksController < ApplicationController
 
+  before_filter :find_link, :only => [:show,
+                                      :edit,
+                                      :update,
+                                      :destroy]
+
   def index
     @links = Link.all
   end
@@ -45,4 +50,12 @@ class LinksController < ApplicationController
     redirect_to links_path
   end
 
+  private
+    def find_link
+      @link = Link.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The link you were looking" +
+                      " for could not be found."
+      redirect_to links_path
+    end
 end
