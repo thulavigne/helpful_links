@@ -13,7 +13,8 @@ class LinksController < ApplicationController
       flash[:notice] = "Link has been created. Yay!"
       redirect_to @link
     else
-      # nothing, yet
+      flash[:alert] = "Link has not been created."
+      render :action => "new"
     end
   end
 
