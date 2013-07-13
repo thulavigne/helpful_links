@@ -23,4 +23,19 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
   end
 
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    if @link.update_attributes(params[:link])
+      flash[:notice] = "Link has been updated."
+      redirect_to @link
+    else
+      flash[:alert] = "Link has not been updated."
+      render :action => "edit"
+    end
+  end
+
 end
