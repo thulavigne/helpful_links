@@ -7,6 +7,7 @@ class LinksController < ApplicationController
 
   def index
     @links = Link.all
+    @links = Link.order('created_at DESC')
   end
 
   def new

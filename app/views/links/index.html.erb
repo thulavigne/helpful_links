@@ -1,7 +1,24 @@
+<h2>Helpful Links</h2>
+</br>
+<p>A list of helpful links I've come accross.</p>
+</br>
+<table style="border:1px solid #222;">
+  <thead>
+    <tr>
+      <th style="padding:10px 20px; border:1px solid #222;">Title</th>
+      <th style="padding:10px 20px; border:1px solid #222;">URL</th>
+      <th style="padding:10px 20px; border:1px solid #222;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td style="padding:10px 20px; border:1px solid #222;"><%= link_to link.title, link %></td>
+        <td style="padding:10px 20px; border:1px solid #222;"><%= link.link %></td>
+        <td style="padding:10px 20px; border:1px solid #222;"><%= link.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</br>
 <%= link_to "New Link", new_link_path %>
-<h2>Links</h2>
-<ul>
-  <% @links.each do |link| %>
-    <li><%= link_to link.title, link %></li>
-  <% end %>
-</ul>
