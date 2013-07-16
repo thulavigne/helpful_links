@@ -7,5 +7,9 @@ class CreateLinks < ActiveRecord::Migration
 
       t.timestamps
     end
+     def change_table
+      add_column(:created_at, :datetime)
+      add_column(:updated_at, :datetime)
+    end
   end
 end
